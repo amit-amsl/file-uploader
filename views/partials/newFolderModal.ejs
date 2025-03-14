@@ -1,0 +1,23 @@
+<div class="modal fade" id="newFolderModal" tabindex="-1" aria-labelledby="newFolderModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="newFolderModalLabel">New folder</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/folder/create" method="post" id="new_folder_form">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="folder_name" placeholder="Folder name"
+                            id="floatingInput" required>
+                        <label for="floatingInput">Folder name</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" form="new_folder_form">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="modal fade" id="shareFolderModal" tabindex="-1" aria-labelledby="shareFolderModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="shareFolderModalLabel">Share folder</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <% if(!folderDetails.FolderShare) { %>
+                    <form action="/share/folder/<%= folderDetails.id %>" method="post" id="share_folder_form">
+                        <p>By clicking on the share button this folder will be shared for 2 days.</p>
+                        <p>Open this modal again after clicking share to see the share link.</p>
+                    </form>
+                    <% } else {%>
+                        <p>This folder has been shared already.</p>
+                        <p>Share link: localhost:3000/share/folder/<%= folderDetails.FolderShare.id%>
+                        </p>
+                        <% } %>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <% if(!folderDetails.FolderShare) { %>
+                    <button type="submit" class="btn btn-primary" form="share_folder_form">Share</button>
+                    <% }%>
+            </div>
+        </div>
+    </div>
+</div>

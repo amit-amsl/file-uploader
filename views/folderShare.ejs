@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/htmlHead', {title: title}) %>
+
+    <body>
+        <%- include('partials/shareNavbar') %>
+
+            <div class="container-fluid mt-3">
+                <div class="">
+                    <h2>
+                        Folder name: <%=sharedFolderDetails.Folder.name%>
+                    </h2>
+                    <h5>Shared by: <%=sharedFolderDetails.Folder.User.username%>
+                    </h5>
+                    <small>share expires at <%=formatRelative(sharedFolderDetails.expiredAt, new Date()) %></small>
+                </div>
+                <table class="table table-hover table-responsive align-middle mb-0 bg-white">
+                    <thead class="bg-light">
+                        <tr>
+                            <th>Name</th>
+                            <th class="d-none d-md-table-cell">Created</th>
+                            <th>Size</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(sharedFolderDetails.Folder.files.length !==0) { %>
+                            <% sharedFolderDetails.Folder.files.forEach((file)=> { %>
+                                <tr>
+                                    <td>
+                                        <a href="<%= file.url%>" class="icon-link">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-file-earmark-image"
+                                                viewBox="0 0 16 16">
+                                                <path d="M6.502 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
+                                                <path
+                                                    d="M14 14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zM4 1a1 1 0 0 0-1 1v10l2.224-2.224a.5.5 0 0 1 .61-.075L8 11l2.157-3.02a.5.5 0 0 1 .76-.063L13 10V4.5h-2A1.5 1.5 0 0 1 9.5 3V1z" />
+                                            </svg>
+                                            <%= file.name%>
+                                        </a>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <%= formatRelative(file.createdAt, new Date()) %>
+                                    </td>
+                                    <td>
+                                        <small>
+                                            <%= file.size %> KB
+                                        </small>
+                                        <p>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex gap-2">
+                                            <a href="<%= downloadLinkGenerator(file.name, file.url)%>"
+                                                class="btn btn-outline-primary btn-sm"><i
+                                                    class="bi bi-download"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                                    <% } else { %>
+                                        <tr>
+                                            <td colspan="4">
+                                                <div>No files in this folder!</div>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+    </body>
+
+</html>

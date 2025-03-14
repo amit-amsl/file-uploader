@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/htmlHead', {title: title}) %>
+
+    <body class="d-flex flex-column align-items-center py-4 bg-body-tertiary">
+        <main class="w-100 m-auto" style="max-width: 330px; padding: 1rem;">
+            <form action="/sign-up" method="post">
+                <div class="d-flex flex-column align-items-center justify-content-center">
+                    <img src="/steering-wheel.png" height="110" width="110" alt="">
+                    <h1 class="fw-medium">Sure<span class="fw-bold">Drive</span></h1>
+                </div>
+                <h2>Sign Up</h2>
+                <% if (locals.errors) {%>
+                    <div class="alert alert-danger" role="alert">
+                        <ul>
+                            <% locals.errors.forEach((error)=> { %>
+                                <li>
+                                    <%= error.msg %>
+                                </li>
+                                <% }); %>
+                        </ul>
+                    </div>
+                    <% } %>
+                        <div class="form-floating">
+                            <input class="form-control" type="text" name="username" id="username" placeholder="Username"
+                                style="margin-bottom: -1px; border-bottom-right-radius: 0; border-bottom-left-radius: 0;"
+                                required>
+                            <label for="username">Username</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" type="password" name="password" id="password"
+                                placeholder="Password" style="border-radius: 0;" required>
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" type="password" name="confirm_password" id="confirm_password"
+                                placeholder="Confirm Password"
+                                style="margin-top: -1px; margin-bottom: 10px; border-top-left-radius: 0; border-top-right-radius: 0;"
+                                required>
+                            <label for="confirm_password">Confirm password</label>
+                        </div>
+                        <button class="btn btn-primary w-100 py-2 my-3" type="submit">Sign In</button>
+                        <small>Already have an account? <a href="/login">Sign in here!</a></small>
+            </form>
+
+        </main>
+    </body>
+
+</html>

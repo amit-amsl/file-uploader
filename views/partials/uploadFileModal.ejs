@@ -1,0 +1,20 @@
+<div class="modal fade" id="uploadFileModal" tabindex="-1" aria-labelledby="uploadFileModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="uploadFileModalLabel">Upload to my trunk</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/upload" method="POST" enctype="multipart/form-data" id="upload_form">
+                    <input class="form-control" type="file" name="file" id="file"
+                        accept="image/jpg,image/jpeg,image/png" required>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" form="upload_form">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
