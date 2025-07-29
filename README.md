@@ -4,7 +4,7 @@
   <img src="public/suredrive_Logo.png" />
 </p>
 
-SureDrive is a simple file storage system built with ExpressJS, EJS templating engine, and BootstrapCSS. This project allows users to sign up, log in, and manage their files and folders. It uses PostgreSQL for data storage and integrates with Cloudinary for file storage.
+SureDrive is a simple file storage system built with ExpressJS, EJS templating engine, and BootstrapCSS. This project allows users to sign up, log in, and manage their files and folders.
 
 ## Built with
 
@@ -34,7 +34,7 @@ SureDrive is a simple file storage system built with ExpressJS, EJS templating e
 
 - **Authentication**: Secure user sessions with PassportJS and Prisma Session Store.
 - **Cloud Storage Integration**: Securely manage file uploads and downloads with Cloudinary Storage.
-- **Folder Management**: Create, organize, and navigate folder structures with web components.
+- **Folder Management**: Create, organize, and navigate folder structures.
 - Responsive UI with Bootstrap CSS
 
 ## Getting started
